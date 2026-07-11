@@ -1,7 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 
-const dataDir = __dirname;
+function resolveDataDir(): string {
+  const built = path.join(process.cwd(), 'dist', 'data');
+  if (fs.existsSync(built)) return built;
+  return __dirname;
+}
+
+const dataDir = resolveDataDir();
 
 function ensureDir(): void {
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -19,9 +25,13 @@ export function load<T>(file: string): T[] {
 }
 
 export function save<T>(file: string, data: T[]): void {
-  ensureDir();
-  const p = path.join(dataDir, file);
-  fs.writeFileSync(p, JSON.stringify(data, null, 2));
+  try {
+    ensureDir();
+    const p = path.join(dataDir, file);
+    fs.writeFileSync(p, JSON.stringify(data, null, 2));
+  } catch (e) {
+    console.warn(`[store] could not persist ${file}: ${(e as Error).message}`);
+  }
 }
 
 export const store = { load, save, dataDir };
