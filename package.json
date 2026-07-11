@@ -1,0 +1,29 @@
+{
+  "name": "express-realty-prime",
+  "version": "1.0.0",
+  "description": "Express Realty Prime - Real Estate Website with Admin Panel",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc && npx copyfiles -u 1 \"src/views/**/*\" dist/ && npx copyfiles -u 1 \"src/public/**/*\" dist/ && npx copyfiles -u 1 \"src/data/**/*\" dist/",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn src/server.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.11.0",
+    "copyfiles": "^2.4.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

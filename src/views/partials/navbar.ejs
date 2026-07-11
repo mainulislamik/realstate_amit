@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="logo">
+      <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="9" fill="#6366f1"/>
+        <path d="M20 8L8 18h4v12h6v-8h4v8h6V18h4L20 8z" fill="white"/>
+      </svg>
+      <span>Express Realty Prime</span>
+    </a>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/" class="<%= currentPage === 'home' ? 'active' : '' %>">Home</a></li>
+      <li><a href="/properties" class="<%= currentPage === 'properties' ? 'active' : '' %>">Listings</a></li>
+      <li><a href="/agents" class="<%= currentPage === 'agents' ? 'active' : '' %>">Agents</a></li>
+      <li><a href="/blog" class="<%= currentPage === 'blog' ? 'active' : '' %>">Blog</a></li>
+      <li><a href="/contact" class="<%= currentPage === 'contact' ? 'active' : '' %>">Contact</a></li>
+      <li class="nav-auth">
+        <a href="/admin/login">Login</a>
+        <a href="/admin/login">Register</a>
+      </li>
+    </ul>
+    <a href="/contact" class="btn-primary nav-cta">Create a Listing</a>
+  </div>
+</nav>

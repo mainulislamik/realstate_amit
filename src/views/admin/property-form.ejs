@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <%- include('sidebar', { active: 'properties', username: '' }) %>
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <h1><%= property ? 'Edit Property' : 'New Property' %></h1>
+        <a href="/admin/properties" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Back</a>
+      </div>
+      <div class="admin-content">
+        <div class="panel">
+          <div class="panel-body">
+            <form action="<%= property ? '/admin/properties/' + property.id : '/admin/properties' %>" method="post" enctype="multipart/form-data">
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label>Title</label>
+                  <input type="text" name="title" class="form-control" value="<%= property ? property.title : '' %>" required>
+                </div>
+                <div class="form-group">
+                  <label>Property Type</label>
+                  <select name="type" class="form-control">
+                    <% types.forEach(t => { %><option value="<%= t %>" <%= property && property.type === t ? 'selected' : '' %>><%= t %></option><% }) %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Status</label>
+                  <select name="status" class="form-control">
+                    <% statuses.forEach(s => { %><option value="<%= s %>" <%= property && property.status === s ? 'selected' : '' %>><%= s %></option><% }) %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Price (USD)</label>
+                  <input type="number" name="price" class="form-control" value="<%= property ? property.price : '' %>" required>
+                </div>
+                <div class="form-group">
+                  <label>Label (optional)</label>
+                  <input type="text" name="label" class="form-control" placeholder="Hot Offer" value="<%= property ? property.label : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>Bedrooms</label>
+                  <input type="number" name="beds" class="form-control" value="<%= property ? property.beds : 0 %>">
+                </div>
+                <div class="form-group">
+                  <label>Bathrooms</label>
+                  <input type="number" name="baths" class="form-control" value="<%= property ? property.baths : 0 %>">
+                </div>
+                <div class="form-group">
+                  <label>Area (sqft)</label>
+                  <input type="number" name="sqft" class="form-control" value="<%= property ? property.sqft : 0 %>">
+                </div>
+                <div class="form-group">
+                  <label>Location / City</label>
+                  <input type="text" name="location" class="form-control" value="<%= property ? property.location : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>State</label>
+                  <input type="text" name="state" class="form-control" value="<%= property ? property.state : '' %>">
+                </div>
+                <div class="form-group full">
+                  <label>Description</label>
+                  <textarea name="description" class="form-control"><%= property ? property.description : '' %></textarea>
+                </div>
+                <div class="form-group full">
+                  <label>Image</label>
+                  <% if (property && property.image) { %><div class="current-img"><img src="<%= property.image %>" alt=""></div><% } %>
+                  <div class="upload-box">
+                    <i class="fas fa-cloud-upload-alt" style="font-size:1.6rem;"></i>
+                    <div>Upload a new image (JPG/PNG, max 8MB)</div>
+                    <input type="file" name="imageFile" accept="image/*">
+                  </div>
+                  <div class="hint">Or provide an image URL below:</div>
+                  <input type="text" name="image" class="form-control" placeholder="https://..." value="<%= property && !property.image.startsWith('/uploads') ? property.image : '' %>">
+                </div>
+                <div class="form-group full">
+                  <div class="check-row">
+                    <input type="checkbox" name="featured" id="featured" <%= property && property.featured ? 'checked' : '' %>>
+                    <label for="featured" style="margin:0;">Show as Featured on homepage</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <%= property ? 'Update Property' : 'Create Property' %></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

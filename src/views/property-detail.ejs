@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+  <div class="container">
+    <h1><%= property.title %></h1>
+    <p><i class="fas fa-map-marker-alt"></i> <%= property.location %>, <%= property.state %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="detail-gallery">
+        <img src="<%= property.image %>" alt="<%= property.title %>">
+      </div>
+      <div class="detail-panel reveal">
+        <div class="detail-price">$<%= property.price.toLocaleString() %></div>
+        <div class="detail-tags">
+          <span class="badge badge-status"><%= property.status %></span>
+          <span class="badge badge-label" style="background:rgba(99,102,241,0.12);color:var(--primary);"><%= property.type %></span>
+          <% if (property.label) { %><span class="badge badge-label"><%= property.label %></span><% } %>
+        </div>
+        <div class="detail-meta">
+          <% if (property.beds > 0) { %><div><i class="fas fa-bed"></i> <%= property.beds %> Beds</div><% } %>
+          <div><i class="fas fa-bath"></i> <%= property.baths %> Baths</div>
+          <div><i class="fas fa-vector-square"></i> <%= property.sqft.toLocaleString() %> sqft</div>
+        </div>
+        <p class="detail-desc"><%= property.description %></p>
+        <div class="detail-actions">
+          <a href="/contact" class="btn-primary btn-block">Inquire About This Property</a>
+          <a href="/properties" class="btn-outline">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

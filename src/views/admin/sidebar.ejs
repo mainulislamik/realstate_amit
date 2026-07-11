@@ -1,0 +1,19 @@
+<aside class="admin-sidebar">
+  <div class="admin-brand">
+    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="9" fill="#6366f1"/>
+      <path d="M20 8L8 18h4v12h6v-8h4v8h6V18h4L20 8z" fill="white"/>
+    </svg>
+    Realty Admin
+  </div>
+  <nav class="admin-nav">
+    <a href="/admin" class="<%= active === 'dashboard' ? 'active' : '' %>"><i class="fas fa-gauge-high"></i> Dashboard</a>
+    <a href="/admin/properties" class="<%= active === 'properties' ? 'active' : '' %>"><i class="fas fa-building"></i> Properties</a>
+    <a href="/admin/agents" class="<%= active === 'agents' ? 'active' : '' %>"><i class="fas fa-user-tie"></i> Agents</a>
+    <a href="/admin/blog" class="<%= active === 'blog' ? 'active' : '' %>"><i class="fas fa-blog"></i> Blog</a>
+  </nav>
+  <div class="admin-sidebar-foot">
+    <a href="/" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+    <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+</aside>

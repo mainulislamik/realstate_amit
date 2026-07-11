@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <%- include('sidebar', { active: 'dashboard', username }) %>
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <h1>Dashboard</h1>
+        <div class="admin-user">
+          <div class="admin-avatar"><%= username.charAt(0).toUpperCase() %></div>
+          <span><%= username %></span>
+        </div>
+      </div>
+      <div class="admin-content">
+        <div class="admin-cards">
+          <div class="admin-card">
+            <div class="ic blue"><i class="fas fa-building"></i></div>
+            <div><div class="num"><%= counts.properties %></div><div class="lbl">Properties</div></div>
+          </div>
+          <div class="admin-card">
+            <div class="ic green"><i class="fas fa-user-tie"></i></div>
+            <div><div class="num"><%= counts.agents %></div><div class="lbl">Agents</div></div>
+          </div>
+          <div class="admin-card">
+            <div class="ic violet"><i class="fas fa-blog"></i></div>
+            <div><div class="num"><%= counts.posts %></div><div class="lbl">Blog Posts</div></div>
+          </div>
+          <div class="admin-card">
+            <div class="ic amber"><i class="fas fa-eye"></i></div>
+            <div><div class="num">Live</div><div class="lbl">Site Status</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Quick Actions</h2></div>
+          <div class="panel-body" style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="/admin/properties/new" class="btn btn-primary"><i class="fas fa-plus"></i> Add Property</a>
+            <a href="/admin/agents/new" class="btn btn-ghost"><i class="fas fa-user-plus"></i> Add Agent</a>
+            <a href="/admin/blog/new" class="btn btn-ghost"><i class="fas fa-pen"></i> New Blog Post</a>
+            <a href="/" class="btn btn-ghost" target="_blank"><i class="fas fa-external-link-alt"></i> View Site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

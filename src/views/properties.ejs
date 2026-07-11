@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Property Listings</h1>
+    <p>Find your perfect home from our curated collection</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="filter-bar reveal">
+      <form action="/properties" method="get" class="filter-grid">
+        <select name="type">
+          <option value="any">All Types</option>
+          <% types.forEach(t => { %><option value="<%= t.toLowerCase() %>" <%= query.type === t.toLowerCase() ? 'selected' : '' %>><%= t %></option><% }) %>
+        </select>
+        <select name="status">
+          <option value="any">All Status</option>
+          <% statuses.forEach(s => { %><option value="<%= s.toLowerCase() %>" <%= query.status === s.toLowerCase() ? 'selected' : '' %>><%= s %></option><% }) %>
+        </select>
+        <select name="location">
+          <option value="any">All Locations</option>
+          <% locations.forEach(l => { %><option value="<%= l %>" <%= query.location === l ? 'selected' : '' %>><%= l %></option><% }) %>
+        </select>
+        <input type="number" name="minPrice" placeholder="Min Price" value="<%= query.minPrice || '' %>">
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+    </div>
+
+    <div style="margin:40px 0 20px;color:var(--text-light);">
+      <%= properties.length %> propert<%= properties.length === 1 ? 'y' : 'ies' %> found
+    </div>
+
+    <% if (properties.length === 0) { %>
+      <div class="no-results">No properties match your filters. Try adjusting your search.</div>
+    <% } %>
+
+      <div class="property-grid">
+      <% properties.forEach(p => { %>
+        <article class="property-card reveal" data-tilt>
+          <div class="property-image">
+            <img src="<%= p.image %>" alt="<%= p.title %>" loading="lazy">
+            <div class="property-badges">
+              <span class="badge badge-status"><%= p.status %></span>
+              <% if (p.label) { %><span class="badge badge-label"><%= p.label %></span><% } %>
+            </div>
+            <div class="property-overlay"><a href="/properties/<%= p.slug %>" class="view-btn">View Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+          <div class="property-info">
+            <h3><a href="/properties/<%= p.slug %>"><%= p.title %></a></h3>
+            <div class="price">$<%= p.price.toLocaleString() %></div>
+            <div class="property-type"><%= p.type %> &middot; <%= p.location %></div>
+            <div class="property-meta">
+              <% if (p.beds > 0) { %><span><i class="fas fa-bed"></i> <%= p.beds %> Beds</span><% } %>
+              <span><i class="fas fa-bath"></i> <%= p.baths %> Baths</span>
+              <span><i class="fas fa-vector-square"></i> <%= p.sqft.toLocaleString() %> sqft</span>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

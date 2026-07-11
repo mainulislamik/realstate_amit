@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Skills That You Can Learn In The Real Estate Market",
+    "slug": "skills-that-you-can-learn-in-the-real-estate-market",
+    "category": "Business",
+    "date": "March 9, 2016",
+    "image": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "From negotiation to market analysis, the real estate industry teaches transferable skills that benefit every professional.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec auctor, felis nec volutpat fermentum, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nunc. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Real estate rewards those who master communication, perseverance, and financial literacy."
+  },
+  {
+    "id": 2,
+    "title": "Learn The Truth About Real Estate Industry",
+    "slug": "learn-the-truth-about-real-estate-industry",
+    "category": "Construction",
+    "date": "March 9, 2016",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Separating myths from facts so you can make confident, informed property decisions.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec auctor, felis nec volutpat fermentum, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nunc. The truth is that real estate is a long-term game built on relationships, not transactions. Understanding the fundamentals protects you from hype."
+  },
+  {
+    "id": 3,
+    "title": "10 Quick Tips About Business Development",
+    "slug": "10-quick-tips-about-business-development",
+    "category": "Real Estate",
+    "date": "March 9, 2016",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Practical strategies to grow your real estate business without burning out.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec auctor, felis nec volutpat fermentum, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nunc. Focus on consistency, nurture your database, and let referrals become your engine for growth."
+  },
+  {
+    "id": 4,
+    "title": "14 Common Misconceptions About Business Development",
+    "slug": "14-common-misconceptions-about-business-development",
+    "category": "Real Estate",
+    "date": "March 9, 2016",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Why the usual advice about growing a business often misses the mark.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec auctor, felis nec volutpat fermentum, nunc nunc tincidunt nunc, vitae aliquam nisl nunc vitae nunc. Growth is rarely linear, and the best developers embrace experimentation over perfection."
+  },
+  {
+    "id": 5,
+    "title": "How to Stage Your Home for a Faster Sale",
+    "slug": "how-to-stage-your-home-for-a-faster-sale",
+    "category": "Home & Living",
+    "date": "January 20, 2026",
+    "image": "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Small staging changes can add thousands to your final sale price and shrink your time on market.",
+    "content": "Staging is about helping buyers picture themselves in the home. Declutter first, then add warm lighting, neutral textiles, and a few statement pieces. Curb appeal matters just as much as the interior, so refresh landscaping and the front door before showings."
+  },
+  {
+    "id": 6,
+    "title": "First-Time Buyer's Guide to Mortgages",
+    "slug": "first-time-buyers-guide-to-mortgages",
+    "category": "Finance",
+    "date": "January 28, 2026",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Everything you need to know about rates, down payments, and getting pre-approved.",
+    "content": "Getting pre-approved is the first real step toward homeownership. Compare fixed and adjustable rates, understand your debt-to-income ratio, and remember that the lowest rate is not always the lowest total cost. A trusted lender will walk you through the fine print."
+  },
+  {
+    "id": 7,
+    "title": "Top Neighborhoods to Watch in 2026",
+    "slug": "top-neighborhoods-to-watch-in-2026",
+    "category": "Market Trends",
+    "date": "February 4, 2026",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Where smart buyers are planting roots this year and why prices are moving.",
+    "content": "Transit-adjacent districts and walkable suburbs are leading 2026's growth. Look for areas with new infrastructure, strong schools, and a budding restaurant scene. The best time to buy is often before the crowd notices."
+  },
+  {
+    "id": 8,
+    "title": "Understanding Property Taxes Like a Pro",
+    "slug": "understanding-property-taxes-like-a-pro",
+    "category": "Finance",
+    "date": "February 11, 2026",
+    "image": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=800&q=80",
+    "excerpt": "Demystifying assessments, exemptions, and how taxes affect your monthly payment.",
+    "content": "Property taxes fund local services and vary widely by location. Review your assessment annually, claim any available homestead exemptions, and factor taxes into your true monthly cost of ownership before making an offer."
+  }
+]

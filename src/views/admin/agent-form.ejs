@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <%- include('sidebar', { active: 'agents', username: '' }) %>
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <h1><%= agent ? 'Edit Agent' : 'New Agent' %></h1>
+        <a href="/admin/agents" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Back</a>
+      </div>
+      <div class="admin-content">
+        <div class="panel">
+          <div class="panel-body">
+            <form action="<%= agent ? '/admin/agents/' + agent.id : '/admin/agents' %>" method="post" enctype="multipart/form-data">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" name="name" class="form-control" value="<%= agent ? agent.name : '' %>" required>
+                </div>
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" name="title" class="form-control" placeholder="Senior Real Estate Agent" value="<%= agent ? agent.title : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input type="text" name="phone" class="form-control" value="<%= agent ? agent.phone : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>Secondary Phone</label>
+                  <input type="text" name="phone2" class="form-control" value="<%= agent ? agent.phone2 : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>WhatsApp Number</label>
+                  <input type="text" name="whatsapp" class="form-control" value="<%= agent ? agent.whatsapp : '' %>">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" value="<%= agent ? agent.email : '' %>">
+                </div>
+                <div class="form-group full">
+                  <label>Bio</label>
+                  <textarea name="bio" class="form-control"><%= agent ? agent.bio : '' %></textarea>
+                </div>
+                <div class="form-group full">
+                  <label>Profile Image</label>
+                  <% if (agent && agent.image) { %><div class="current-img"><img src="<%= agent.image %>" alt=""></div><% } %>
+                  <div class="upload-box">
+                    <i class="fas fa-cloud-upload-alt" style="font-size:1.6rem;"></i>
+                    <div>Upload a new photo (JPG/PNG, max 8MB)</div>
+                    <input type="file" name="imageFile" accept="image/*">
+                  </div>
+                  <div class="hint">Or provide an image URL:</div>
+                  <input type="text" name="image" class="form-control" placeholder="https://..." value="<%= agent && !agent.image.startsWith('/uploads') ? agent.image : '' %>">
+                </div>
+                <div class="form-group full">
+                  <label>Listing IDs (comma separated)</label>
+                  <input type="text" name="listings" class="form-control" placeholder="1, 3, 5" value="<%= agent && agent.listings ? agent.listings.join(', ') : '' %>">
+                  <div class="hint">Property IDs that appear on this agent's profile.</div>
+                </div>
+                <div class="form-group full">
+                  <div class="check-row">
+                    <input type="checkbox" name="verified" id="verified" <%= agent && agent.verified ? 'checked' : '' %>>
+                    <label for="verified" style="margin:0;">Mark as Verified agent</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <%= agent ? 'Update Agent' : 'Create Agent' %></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

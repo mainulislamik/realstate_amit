@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Our Blog</h1>
+    <p>Insights, tips and trends from the world of real estate</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-grid">
+      <% posts.forEach(post => { %>
+        <article class="blog-card reveal" data-tilt>
+          <div class="blog-thumb"><img src="<%= post.image %>" alt="<%= post.title %>" loading="lazy"></div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar"></i> <%= post.date %></span>
+              <span><i class="far fa-folder"></i> <%= post.category %></span>
+            </div>
+            <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+            <p><%= post.excerpt %></p>
+            <a href="/blog/<%= post.slug %>" class="read-more">Continue reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

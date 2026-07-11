@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+  <div class="container">
+    <h1><%= post.title %></h1>
+    <div class="blog-meta" style="justify-content:center;color:rgba(255,255,255,0.85);">
+      <span><i class="far fa-calendar"></i> <%= post.date %></span>
+      <span><i class="far fa-folder"></i> <%= post.category %></span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="article reveal">
+      <img src="<%= post.image %>" alt="<%= post.title %>" class="article-img">
+      <p><%= post.content %></p>
+      <a href="/blog" class="btn-outline"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

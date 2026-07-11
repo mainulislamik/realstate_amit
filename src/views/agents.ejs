@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Our Agents</h1>
+    <p>Meet the local experts who make your move effortless</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="team-grid">
+      <% agents.forEach(agent => { %>
+        <div class="team-card reveal" data-tilt>
+          <div class="team-photo"><img src="<%= agent.image %>" alt="<%= agent.name %>" loading="lazy"></div>
+          <div class="team-info">
+            <h3><a href="/agents/<%= agent.slug %>"><%= agent.name %></a></h3>
+            <div class="role"><%= agent.title %></div>
+            <% if (agent.verified) { %><div class="verified"><i class="fas fa-check-circle"></i> Verified</div><% } %>
+            <div class="team-contacts">
+              <a href="tel:<%= agent.phone.replace(/\s/g,'') %>"><i class="fas fa-phone"></i> <%= agent.phone %></a>
+              <a href="tel:<%= agent.phone2.replace(/\s/g,'') %>"><%= agent.phone2 %></a>
+            </div>
+            <a href="https://wa.me/<%= agent.whatsapp %>" class="wa-link"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

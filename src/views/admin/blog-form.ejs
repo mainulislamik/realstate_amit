@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <%- include('sidebar', { active: 'blog', username: '' }) %>
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <h1><%= post ? 'Edit Post' : 'New Post' %></h1>
+        <a href="/admin/blog" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Back</a>
+      </div>
+      <div class="admin-content">
+        <div class="panel">
+          <div class="panel-body">
+            <form action="<%= post ? '/admin/blog/' + post.id : '/admin/blog' %>" method="post" enctype="multipart/form-data">
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label>Title</label>
+                  <input type="text" name="title" class="form-control" value="<%= post ? post.title : '' %>" required>
+                </div>
+                <div class="form-group">
+                  <label>Category</label>
+                  <input type="text" name="category" class="form-control" value="<%= post ? post.category : '' %>" placeholder="Business">
+                </div>
+                <div class="form-group full">
+                  <label>Excerpt</label>
+                  <input type="text" name="excerpt" class="form-control" value="<%= post ? post.excerpt : '' %>" placeholder="Short summary shown on the blog list">
+                </div>
+                <div class="form-group full">
+                  <label>Content</label>
+                  <textarea name="content" class="form-control" style="min-height:200px;"><%= post ? post.content : '' %></textarea>
+                </div>
+                <div class="form-group full">
+                  <label>Featured Image</label>
+                  <% if (post && post.image) { %><div class="current-img"><img src="<%= post.image %>" alt=""></div><% } %>
+                  <div class="upload-box">
+                    <i class="fas fa-cloud-upload-alt" style="font-size:1.6rem;"></i>
+                    <div>Upload an image (JPG/PNG, max 8MB)</div>
+                    <input type="file" name="imageFile" accept="image/*">
+                  </div>
+                  <div class="hint">Or provide an image URL:</div>
+                  <input type="text" name="image" class="form-control" placeholder="https://..." value="<%= post && !post.image.startsWith('/uploads') ? post.image : '' %>">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <%= post ? 'Update Post' : 'Publish Post' %></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

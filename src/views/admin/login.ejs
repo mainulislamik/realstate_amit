@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-brand">
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="9" fill="#6366f1"/>
+          <path d="M20 8L8 18h4v12h6v-8h4v8h6V18h4L20 8z" fill="white"/>
+        </svg>
+        Express Realty Prime
+      </div>
+      <h2>Welcome back</h2>
+      <p class="sub">Sign in to your admin dashboard</p>
+      <% if (error) { %><div class="login-error"><i class="fas fa-exclamation-circle"></i> <%= error %></div><% } %>
+      <form action="/admin/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" placeholder="admin" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+      </form>
+      <p class="login-foot">Default credentials: <strong>admin</strong> / <strong>admin123</strong><br><a href="/">← Back to website</a></p>
+    </div>
+  </div>
+</body>
+</html>
